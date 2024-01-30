@@ -66,6 +66,17 @@ Get the output file at `data-generator/data.sql`
 > ./clean-up.ps1
 ```
 
+### MySQL dump
+
+With this workspace you can run the following command to dump `_App` and `_Security` databases.
+
+```sh
+$ docker exec -it <container> /bin/bash
+$ mysqldump -u root -p _App --databases _App _Security --result-file /var/lib/mysql-backup/_App+_Security.dump.sql
+```
+
+Dump file can be found at : `./backup/<dump-file>.dump.sql`
+
 ### Folder structure
 
 * `backup/`: Folder mounted on Docker container for extracting backup file / SQL dump.
